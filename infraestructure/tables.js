@@ -4,6 +4,7 @@ class Tables {
 
         this.connection = connection;
         this.createUsersTable();
+        this.createCardListsTable();
     }
 
     createUsersTable() {
@@ -13,7 +14,19 @@ class Tables {
             if(error) {
                 console.log(error);
             } else {
-                console.log("Users table created successfully")
+                console.log("users table created successfully")
+            }
+        }));
+    }
+
+    createCardListsTable() {
+        const sql = 'CREATE TABLE IF NOT EXISTS cardLists (id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, userId int NOT NULL, PRIMARY KEY(id), FOREIGN KEY (userId) REFERENCES users(id))';
+
+        this.connection.query(sql, (error => {
+            if(error) {
+                console.log(error);
+            } else {
+                console.log("cardLists table created successfully")
             }
         }));
     }
