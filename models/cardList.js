@@ -39,7 +39,7 @@ class CardList {
         })
     }
 
-    searchUserById(userId, res) {
+    searchByUserId(userId, res) {
         const sql = `SELECT * FROM cardLists WHERE userId=${userId}`;
 
         connection.query(sql, (error, results) => {

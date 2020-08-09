@@ -14,7 +14,7 @@ module.exports = app => {
     app.get('/cardLists/byUserId/:userId', (req, res) => {
         const userId = parseInt(req.params.userId);
 
-        CardList.searchUserById(userId, res);
+        CardList.searchByUserId(userId, res);
     })
 
     app.post('/cardLists', (req, res) => {
