@@ -39,6 +39,19 @@ class Card {
         })
     }
 
+    searchByCardListId(cardListId, res) {
+        const sql = `SELECT * FROM cards WHERE cardListId=${cardListId}`;
+
+        connection.query(sql, (error, results) => {
+            const cards = results;
+            if(error) {
+                res.status(400).json(error);
+            } else {
+                res.status(200).json(cards);
+            }
+        })
+    }
+
     patch(id, values, res) {
         if(values.data){
             values.data = moment(values.data, 'DD/MM/YYYY').format('YYYY-MM-DD hh:mm:ss');
