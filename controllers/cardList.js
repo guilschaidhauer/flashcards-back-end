@@ -11,6 +11,12 @@ module.exports = app => {
         CardList.searchById(id, res);
     })
 
+    app.get('/cardLists/byUserId/:userId', (req, res) => {
+        const userId = parseInt(req.params.userId);
+
+        CardList.searchUserById(userId, res);
+    })
+
     app.post('/cardLists', (req, res) => {
         const cardList = req.body;
         
