@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     port: 3307, 
     user: 'root',
     password: '1234',
-    database: 'library'
+    database: 'flashcards'
 });
 
 module.exports = connection
